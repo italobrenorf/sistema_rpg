@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h3>Aqui mostra os personagens</h3>
+
+    <a href="/personagem/add/"> Criar novo personagem </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Nome </th>
+                <th> Jogador </th>
+                <th> Classe </th>
+                <th> Raça </th>
+                <th> Nível </th>
+                <th> HP </th>
+                <th> Ouro </th>
+                <th> Guilda </th>
+                <th> Detalhe </th>
+                <th> Edita </th>
+                <th> Deleta </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for personagem in personagens %}
+            <tr>
+                <td> {{ personagem.nome }}</td>
+                <td> {{ personagem.Usuario }}</td>
+                <td> {{ personagem.classe }}</td>
+                <td> {{ personagem.raca }}</td>
+                <td> {{ personagem.nivel }}</td>
+                <td> {{ personagem.hp }}</td>
+                <td> {{ personagem.ouro }}</td>
+                <td> {{ personagem.guilda|default:"Sem Guilda" }}</td>
+                <td> <a href="/personagem/{{personagem.id}}"> Detalhes </a> </td>
+                <td> <a href="/personagem/edit/{{personagem.id}}"> Editar </a> </td>
+                <td> <a href="/personagem/delete/{{personagem.id}}"> Deletar </a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

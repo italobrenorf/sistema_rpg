@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<h3>{{ item.nome }}</h3>
+<h3>Tipo</h3>
+<p>{{ item.tipo }}</p>
+<h3>Valor</h3>
+<p>{{ item.valor }}</p>
+<h3>Descrição</h3>
+<p>{{ item.descricao }}</p>
+
+<a href="/item/">← Voltar</a>
+
+{% endblock %}

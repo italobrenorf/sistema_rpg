@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<h3>{{ missao.titulo }}</h3>
+<h3>Recompensa</h3>
+<p>{{ missao.recompensa }}</p>
+<h3>Personagem</h3>
+<p>{{ missao.personagem }}</p>
+<h3>Concluida</h3>
+<p>{{ missao.concluida }}</p>
+<h3>Descrição</h3>
+<p>{{ missao.descricao }}</p>
+
+<a href="/missao/">← Voltar</a>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<h3>{{ personagem.nome }}</h3>
+<h3>Jogador</h3>
+<p>{{ personagem.Usuario }}</p>
+<h3>Classe</h3>
+<p>{{ personagem.classe }}</p>
+<h3>Raça</h3>
+<p>{{ personagem.raca }}</p>
+<h3>Nível</h3>
+<p>{{ personagem.nivel }}</p>
+<h3>HP</h3>
+<p>{{ personagem.hp }}</p>
+<h3>Ouro</h3>
+<p>{{ personagem.ouro }}</p>
+<h3>Guilda</h3>
+<p>{{ personagem.guilda|default:"Sem Guilda" }}</p>
+<h3>História</h3>
+<p>{{ personagem.historia }}</p>
+
+<a href="/personagem/">← Voltar</a>
+
+{% endblock %}

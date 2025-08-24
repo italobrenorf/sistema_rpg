@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}TeamHost - Join now and play mighty games!{% endblock %}</title>
+    <meta name="author" content="Templines">
+    <meta name="description" content="TeamHost">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/libs.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/showcase.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+
+    <style>
+        .sidebar-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px; /* ajuste conforme a largura real da sua sidebar */
+            height: 100vh;
+            background-color: #ffffff;
+            z-index: 1000;
+            border-right: 1px solid #eee;
+        }
+
+        .main-content {
+            margin-left: 250px; /* igual à largura da sidebar */
+            padding: 40px;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body class="page-showcase">
+
+    <input id="toggle" type="checkbox" hidden>
+    <script>
+        document.getElementById("toggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-theme");
+        });
+    </script>
+
+    <!-- Loader -->
+    <div id="page-preloader">
+        <div class="preloader-1">
+            <div class="loader-text">Loading</div>
+            {% for i in "123456789" %}
+                <span class="line line-{{ i }}"></span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Wrapper -->
+    <div class="page-wrapper">
+
+        <!-- Topbar -->
+        {% include '_topbar.html' %}
+
+        <!-- Sidebar fixa -->
+        <div class="sidebar-fixed">
+            {% include '_sidebar.html' %}
+        </div>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/libs.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

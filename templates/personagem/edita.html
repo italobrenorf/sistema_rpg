@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<h3>Editar Personagem</h3>
+
+<form method="post"action="">
+    {% csrf_token %}
+
+    {% for field in form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        <br> <br>
+    {% endfor %}
+
+    <a href="/personagem/">← Voltar</a>
+    <button type="submit">Editar</button>
+
+</form>
+{% endblock %}
