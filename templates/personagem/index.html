@@ -1,38 +1,56 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h3>Aqui mostra os personagens</h3>
+    <h3 class="uk-heading-line uk-text-bold"><span>Personagens</span></h3>
 
-    <a href="/personagem/add/"> Criar novo personagem </a>
+    <!-- Botão criar personagem -->
+    <div class="uk-margin">
+        <a href="/personagem/add/" class="uk-button uk-button-primary">
+            Criar novo personagem
+        </a>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th> Nome </th>
-                <th> Classe </th>
-                <th> Raça </th>
-                <th> Nível </th>
-                <th> HP </th>
-                <th> Ouro </th>
-                <th> Detalhe </th>
-                <th> Edita </th>
-                <th> Deleta </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for personagem in personagens %}
-            <tr>
-                <td> {{ personagem.nome }}</td>
-                <td> {{ personagem.classe }}</td>
-                <td> {{ personagem.raca }}</td>
-                <td> {{ personagem.nivel }}</td>
-                <td> {{ personagem.hp }}</td>
-                <td> {{ personagem.ouro }}</td>
-                <td> <a href="/personagem/{{personagem.id}}"> Detalhes </a> </td>
-                <td> <a href="/personagem/edit/{{personagem.id}}"> Editar </a> </td>
-                <td> <a href="/personagem/delete/{{personagem.id}}"> Deletar </a> </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <!-- Tabela -->
+    <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Classe</th>
+                    <th>Raça</th>
+                    <th>Nível</th>
+                    <th>HP</th>
+                    <th>Ouro</th>
+                    <th class="uk-text-center">Detalhe</th>
+                    <th class="uk-text-center">Editar</th>
+                    <th class="uk-text-center">Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for personagem in personagens %}
+                <tr>
+                    <td>{{ personagem.nome }}</td>
+                    <td>{{ personagem.classe }}</td>
+                    <td>{{ personagem.raca }}</td>
+                    <td>{{ personagem.nivel }}</td>
+                    <td>{{ personagem.hp }}</td>
+                    <td>{{ personagem.ouro }}</td>
+                    <td class="uk-text-center">
+                        <a href="/personagem/{{personagem.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="/personagem/edit/{{personagem.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="/personagem/delete/{{personagem.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="9" class="uk-text-center uk-text-muted">Nenhum personagem cadastrado</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

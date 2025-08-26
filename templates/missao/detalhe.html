@@ -1,16 +1,29 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h3>{{ missao.titulo }}</h3>
-<h3>Recompensa</h3>
-<p>{{ missao.recompensa }}</p>
-<h3>Personagem</h3>
-<p>{{ missao.personagem }}</p>
-<h3>Concluida</h3>
-<p>{{ missao.concluida }}</p>
-<h3>Descrição</h3>
-<p>{{ missao.descricao }}</p>
+<div class="uk-container">
 
-<a href="/missao/">← Voltar</a>
+  <div class="uk-card uk-card-default uk-card-body uk-margin">
+    <h2 class="uk-card-title">{{ missao.titulo }}</h2>
 
+    <dl class="uk-description-list uk-description-list-divider">
+      <dt>Recompensa</dt>
+      <dd>{{ missao.recompensa }}</dd>
+
+      <dt>Personagem</dt>
+      <dd>{{ missao.personagem }}</dd>
+
+      <dt>Concluída</dt>
+      <dd>{{ missao.concluida }}</dd>
+
+      <dt>Descrição</dt>
+      <dd>{{ missao.descricao }}</dd>
+    </dl>
+
+    <a href="/missao/" class="uk-button uk-button-secondary uk-margin-top">
+      ← Voltar
+    </a>
+  </div>
+
+</div>
 {% endblock %}

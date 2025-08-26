@@ -1,0 +1,50 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<h3 class="uk-heading-line uk-text-bold"><span>Usuários</span></h3>
+
+<!-- Botão criar usuário -->
+<div class="uk-margin">
+    <a href="/usuario/add/" class="uk-button uk-button-primary">
+        Criar novo usuário
+    </a>
+</div>
+
+<!-- Tabela -->
+<div class="uk-overflow-auto">
+    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Data de Nascimento</th>
+                <th>Telefone</th>
+                <th class="uk-text-center">Detalhe</th>
+                <th class="uk-text-center">Editar</th>
+                <th class="uk-text-center">Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.data_nascimento }}</td>
+                <td>{{ usuario.telefone }}</td>
+                <td class="uk-text-center">
+                    <a href="/usuario/{{usuario.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
+                </td>
+                <td class="uk-text-center">
+                    <a href="/usuario/edit/{{usuario.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
+                </td>
+                <td class="uk-text-center">
+                    <a href="/usuario/delete/{{usuario.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="uk-text-center uk-text-muted">Nenhum usuário cadastrado</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,33 +1,50 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h3>Aqui mostra os missoes</h3>
+<h3 class="uk-heading-line uk-text-bold"><span>Missões</span></h3>
 
-    <a href="/missao/add/"> Criar novo missao </a>
+<!-- Botão criar missão -->
+<div class="uk-margin">
+    <a href="/missao/add/" class="uk-button uk-button-primary uk-light">
+        Criar nova missão
+    </a>
+</div>
 
-    <table>
+<!-- Tabela -->
+<div class="uk-overflow-auto">
+    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small">
         <thead>
             <tr>
-                <th> Título </th>
-                <th> Recompensa </th>
-                <th> Concluída </th>
-                <th> Detalhe </th>
-                <th> Edita </th>
-                <th> Deleta </th>
+                <th>Título</th>
+                <th>Recompensa</th>
+                <th>Concluída</th>
+                <th class="uk-text-center">Detalhe</th>
+                <th class="uk-text-center">Editar</th>
+                <th class="uk-text-center">Deletar</th>
             </tr>
         </thead>
         <tbody>
             {% for missao in missoes %}
             <tr>
-                <td> {{ missao.titulo }}</td>
-                <td> {{ missao.recompensa}}</td>
-                <td> {{ missao.concluida }}</td>
-                <td> <a href="/missao/{{missao.id}}"> Detalhes </a> </td>
-                <td> <a href="/missao/edit/{{missao.id}}"> Editar </a> </td>
-                <td> <a href="/missao/delete/{{missao.id}}"> Deletar </a> </td>
+                <td>{{ missao.titulo }}</td>
+                <td>{{ missao.recompensa }}</td>
+                <td>{{ missao.concluida }}</td>
+                <td class="uk-text-center">
+                    <a href="/missao/{{missao.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
+                </td>
+                <td class="uk-text-center">
+                    <a href="/missao/edit/{{missao.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
+                </td>
+                <td class="uk-text-center">
+                    <a href="/missao/delete/{{missao.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="uk-text-center uk-text-muted">Nenhuma missão cadastrada</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
-    {% endblock %}
+</div>
+{% endblock %}

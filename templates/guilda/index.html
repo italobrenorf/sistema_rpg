@@ -1,12 +1,12 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h3 class="uk-heading-line uk-text-bold"><span>Itens</span></h3>
+<h3 class="uk-heading-line uk-text-bold"><span>Guildas</span></h3>
 
-<!-- Botão criar item -->
+<!-- Botão criar guilda -->
 <div class="uk-margin">
-    <a href="/item/add/" class="uk-button uk-button-primary uk-light">
-        Criar novo Item
+    <a href="/guilda/add/" class="uk-button uk-button-primary uk-light">
+        Criar nova Guilda
     </a>
 </div>
 
@@ -16,32 +16,30 @@
         <thead>
             <tr>
                 <th>Nome</th>
-                <th>Tipo</th>
-                <th>Valor</th>
+                <th>Descrição</th>
                 <th class="uk-text-center">Detalhe</th>
                 <th class="uk-text-center">Editar</th>
                 <th class="uk-text-center">Deletar</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in itens %}
+            {% for guilda in guildas %}
             <tr>
-                <td>{{ item.nome }}</td>
-                <td>{{ item.tipo }}</td>
-                <td>{{ item.valor }}</td>
+                <td>{{ guilda.nome }}</td>
+                <td>{{ guilda.descricao }}</td>
                 <td class="uk-text-center">
-                    <a href="/item/{{item.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
+                    <a href="/guilda/{{guilda.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
                 </td>
                 <td class="uk-text-center">
-                    <a href="/item/edit/{{item.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
+                    <a href="/guilda/edit/{{guilda.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
                 </td>
                 <td class="uk-text-center">
-                    <a href="/item/delete/{{item.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
+                    <a href="/guilda/delete/{{guilda.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="6" class="uk-text-center uk-text-muted">Nenhum item cadastrado</td>
+                <td colspan="5" class="uk-text-center uk-text-muted">Nenhuma guilda cadastrada</td>
             </tr>
             {% endfor %}
         </tbody>

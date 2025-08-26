@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="uk-container">
+
+  <div class="uk-card uk-card-default uk-card-body uk-margin">
+    <h2 class="uk-card-title">{{ usuario.first_name }} {{ usuario.last_name }}</h2>
+
+    <dl class="uk-description-list uk-description-list-divider">
+      <dt>Username</dt>
+      <dd>{{ usuario.username }}</dd>
+
+      <dt>Data de Nascimento</dt>
+      <dd>{{ usuario.data_nascimento }}</dd>
+
+      <dt>Telefone</dt>
+      <dd>{{ usuario.telefone|default:"Sem telefone" }}</dd>
+    </dl>
+
+    <a href="/usuario/" class="uk-button uk-button-secondary uk-margin-top">
+      ← Voltar
+    </a>
+  </div>
+
+</div>
+{% endblock %}

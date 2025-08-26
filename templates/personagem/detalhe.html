@@ -1,24 +1,41 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h3>{{ personagem.nome }}</h3>
-<h3>Jogador</h3>
-<p>{{ personagem.Usuario }}</p>
-<h3>Classe</h3>
-<p>{{ personagem.classe }}</p>
-<h3>Raça</h3>
-<p>{{ personagem.raca }}</p>
-<h3>Nível</h3>
-<p>{{ personagem.nivel }}</p>
-<h3>HP</h3>
-<p>{{ personagem.hp }}</p>
-<h3>Ouro</h3>
-<p>{{ personagem.ouro }}</p>
-<h3>Guilda</h3>
-<p>{{ personagem.guilda|default:"Sem Guilda" }}</p>
-<h3>História</h3>
-<p>{{ personagem.historia }}</p>
+<div class="uk-container">
 
-<a href="/personagem/">← Voltar</a>
+  <div class="uk-card uk-card-default uk-card-body uk-margin">
+    <h2 class="uk-card-title">{{ personagem.nome }}</h2>
 
+    <dl class="uk-description-list uk-description-list-divider">
+      <dt>Jogador</dt>
+      <dd>{{ personagem.nome }}</dd>
+
+      <dt>Classe</dt>
+      <dd>{{ personagem.classe }}</dd>
+
+      <dt>Raça</dt>
+      <dd>{{ personagem.raca }}</dd>
+
+      <dt>Nível</dt>
+      <dd>{{ personagem.nivel }}</dd>
+
+      <dt>HP</dt>
+      <dd>{{ personagem.hp }}</dd>
+
+      <dt>Ouro</dt>
+      <dd>{{ personagem.ouro }}</dd>
+
+      <dt>Guilda</dt>
+      <dd>{{ personagem.guilda|default:"Sem Guilda" }}</dd>
+
+      <dt>História</dt>
+      <dd>{{ personagem.historia }}</dd>
+    </dl>
+
+    <a href="/personagem/" class="uk-button uk-button-secondary uk-margin-top">
+      ← Voltar
+    </a>
+  </div>
+
+</div>
 {% endblock %}

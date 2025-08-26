@@ -1,19 +1,31 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h3>Editar Personagem</h3>
+<div class="uk-container uk-margin-top">
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+        <h3 class="uk-card-title">editar ersonagem</h3>
+        <form method="post" action="">
+            {% csrf_token %}
 
-<form method="post"action="">
-    {% csrf_token %}
+            {% for field in form %}
+                <div class="uk-margin">
+                    <label for="{{ field.id_for_label }}" class="uk-form-label">{{ field.label }}</label>
+                    <div class="uk-form-controls">
+                        {{ field }}
+                    </div>
+                    {% if field.errors %}
+                        <div class="uk-text-danger uk-text-small">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
 
-    {% for field in form %}
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        <br> <br>
-    {% endfor %}
-
-    <a href="/personagem/">← Voltar</a>
-    <button type="submit">Editar</button>
-
-</form>
+            <div class="uk-flex uk-flex-between uk-margin-top">
+                <a href="/personagem/" class="uk-button uk-button-default">← Voltar</a>
+                <button type="submit" class="uk-button uk-button-primary">Alterar</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
