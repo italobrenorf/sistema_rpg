@@ -7,6 +7,12 @@ class Item(models.Model):
     valor = models.FloatField()
     descricao = models.TextField()
 
+    class Meta:
+        db_table = "Item_itens"
+        permissions = [
+            ("detail_item", "Pode ver o detalhe do item"),
+        ]
+
     def __str__(self):
         return self.nome
 

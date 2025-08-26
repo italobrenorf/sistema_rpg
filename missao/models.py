@@ -6,6 +6,12 @@ class Missao(models.Model):
     descricao = models.TextField()
     recompensa = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True, blank=True)
 
+    class Meta:
+        db_table = "Missao_missoes"
+        permissions = [
+            ("detail_missao", "Pode ver o detalhe da missao"),
+        ]
+
     def __str__(self):
         return self.nome
 

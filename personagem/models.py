@@ -1,5 +1,6 @@
 from django.db import models
-# from guilda.models import Guilda
+from guilda.models import Guilda
+from usuario.models import Usuario
 
 class Personagem(models.Model):
     TIPOS = [
@@ -14,9 +15,17 @@ class Personagem(models.Model):
     nivel = models.IntegerField()
     hp = models.IntegerField()
     ouro = models.IntegerField()
-    # guilda
+    guilda = models.ForeignKey(Guilda, on_delete=models.SET_NULL, null=True)
     historia = models.TextField(blank=True)
-    # criador
+    criador = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True) #tirar duvida com carlos se tem como mudar automaticamente para o mestre e mudar o tipo dele para npc
     tipo = models.CharField(max_length=50, choices=TIPOS)
 
+    class Meta:
+        db_table = "Personagem_personagens"
+        permissions = [
+            ("detail_personagem", "Pode ver o detalhe do personagem"),
+        ]
+
+    def __str__(self):
+        return self.nome
 
