@@ -1,6 +1,7 @@
 from django.db import models
 from guilda.models import Guilda
 from usuario.models import Usuario
+from item.models import Item
 
 class Personagem(models.Model):
     TIPOS = [
@@ -19,6 +20,7 @@ class Personagem(models.Model):
     historia = models.TextField(blank=True)
     criador = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True) #tirar duvida com carlos se tem como mudar automaticamente para o mestre e mudar o tipo dele para npc
     tipo = models.CharField(max_length=50, choices=TIPOS)
+    inventario = models.ManyToManyField(Item, related_name='personagens')
 
     class Meta:
         db_table = "Personagem_personagens"

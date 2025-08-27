@@ -3,12 +3,13 @@
 {% block content %}
 <h3 class="uk-heading-line uk-text-bold"><span>Guildas</span></h3>
 
-<!-- Botão criar guilda -->
+{% if perms.guilda.add_guilda %}
 <div class="uk-margin">
     <a href="/guilda/add/" class="uk-button uk-button-primary uk-light">
         Criar nova Guilda
     </a>
 </div>
+{% endif %}
 
 <!-- Tabela -->
 <div class="uk-overflow-auto">
@@ -17,9 +18,9 @@
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
-                <th class="uk-text-center">Detalhe</th>
-                <th class="uk-text-center">Editar</th>
-                <th class="uk-text-center">Deletar</th>
+                {% if perms.guilda.detail_guilda %} <th class="uk-text-center">Detalhe</th> {% endif %}
+                {% if perms.guilda.change_guilda %} <th class="uk-text-center">Editar</th> {% endif %}
+                {% if perms.guilda.delete_guilda %} <th class="uk-text-center">Deletar</th> {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -27,15 +28,15 @@
             <tr>
                 <td>{{ guilda.nome }}</td>
                 <td>{{ guilda.descricao }}</td>
-                <td class="uk-text-center">
+                {% if perms.guilda.detail_guilda %} <td class="uk-text-center">
                     <a href="/guilda/{{guilda.id}}" class="uk-button uk-button-default uk-button-small">Detalhes</a>
-                </td>
-                <td class="uk-text-center">
+                </td>{% endif %}
+                {% if perms.guilda.change_guilda %} <td class="uk-text-center">
                     <a href="/guilda/edit/{{guilda.id}}" class="uk-button uk-button-secondary uk-button-small">Editar</a>
-                </td>
-                <td class="uk-text-center">
+                </td>{% endif %}
+                {% if perms.guilda.delete_guilda %} <td class="uk-text-center">
                     <a href="/guilda/delete/{{guilda.id}}" class="uk-button uk-button-danger uk-button-small">Deletar</a>
-                </td>
+                </td>{% endif %}
             </tr>
             {% empty %}
             <tr>

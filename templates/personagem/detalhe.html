@@ -27,9 +27,19 @@
 
       <dt>Guilda</dt>
       <dd>{{ personagem.guilda|default:"Sem Guilda" }}</dd>
-
+      
+      <dt>Tipo</dt>
+      <dd>{{ personagem.tipo }}</dd>
+      
       <dt>História</dt>
       <dd>{{ personagem.historia }}</dd>
+
+      <dt>Inventário</dt>
+      <dd>{% for item in personagem.inventario.all %}
+        {{ item.nome }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+        Vazio
+        {% endfor %}</dd>
     </dl>
 
     <a href="/personagem/" class="uk-button uk-button-secondary uk-margin-top">

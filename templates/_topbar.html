@@ -15,7 +15,12 @@
         <a href="#" uk-icon="user" class="uk-light"></a>
         <div class="uk-navbar-dropdown uk-background-secondary uk-dark">
           <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li><a href="/logout/" class="uk-light">Sair</a></li>
+            <li>
+              <form id="logout-form" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="uk-light" type="submit">Sair</button>
+              </form>
+            </li>
           </ul>
         </div>
       </li>

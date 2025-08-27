@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/libs.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/showcase.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="uk-background-secondary uk-dark" uk-navbar>
+
+        <!-- Logo / Nome do Sistema -->
+        <div class="uk-navbar-left">
+            <a href="/" class="uk-navbar-item uk-logo uk-light uk-text-bold">
+                Campanha de RPG
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="uk-container uk-margin-large-top">
+        <h3 class="uk-heading-line uk-text-bold"><span>Login</span></h3>
+
+        <div class="uk-flex uk-flex-center uk-margin-top">
+            <div class="uk-card uk-card-default uk-card-body uk-width-medium">
+                <form method="post" action="">
+                    {% csrf_token %}
+
+                    <!-- Usuário -->
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="id_username">Usuário</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="id_username" name="username" type="text"
+                                placeholder="Digite seu usuário" required>
+                        </div>
+                    </div>
+
+                    <!-- Senha -->
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="id_password">Senha</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="id_password" name="password" type="password"
+                                placeholder="Digite sua senha" required>
+                        </div>
+                    </div>
+
+                    <!-- Botão -->
+                    <div class="uk-margin uk-text-center">
+                        <button class="uk-button uk-button-primary" type="submit">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit-icons.min.js"></script>
+
+</body>
+
+</html>

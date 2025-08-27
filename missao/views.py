@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from .models import Missao
 from django.shortcuts import render
-from .forms import MissaoForm
+from .forms import MissaoForm, MissaoEditForm
 from django.contrib.auth.decorators import login_required, permission_required
 
 def index(request):
@@ -28,12 +28,12 @@ def edita(request, id_missao):
     missao = Missao.objects.get(id=id_missao)
 
     if request.method == "POST":
-        form = MissaoForm(request.POST, instance=missao)
+        form = MissaoEditForm(request.POST, instance=missao)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/missao/")
     else:
-        form = MissaoForm(instance=missao)
+        form = MissaoEditForm(instance=missao)
     return render(request, 'missao/edita.html', {'form': form})
 
 def deleta(request, id_missao):

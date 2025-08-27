@@ -4,9 +4,13 @@
 <div class="uk-container">
 
   <div class="uk-card uk-card-default uk-card-body uk-margin">
-    <h2 class="uk-card-title">{{ missao.titulo }}</h2>
+    <h2 class="uk-card-title">{{ missao.nome }}</h2>
 
     <dl class="uk-description-list uk-description-list-divider">
+
+      <dt>Descrição</dt>
+      <dd>{{ missao.descricao }}</dd>
+
       <dt>Recompensa</dt>
       <dd>{{ missao.recompensa }}</dd>
 
@@ -14,10 +18,14 @@
       <dd>{{ missao.personagem }}</dd>
 
       <dt>Concluída</dt>
-      <dd>{{ missao.concluida }}</dd>
+      <dd>{{ missao.concluida }}</dd> 
 
-      <dt>Descrição</dt>
-      <dd>{{ missao.descricao }}</dd>
+      <dt>Personagens</dt>
+      <dd>{% for personagem in missao.personagens.all %}
+        {{ personagem.nome }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+        Nenhum
+        {% endfor %}</dd>
     </dl>
 
     <a href="/missao/" class="uk-button uk-button-secondary uk-margin-top">
