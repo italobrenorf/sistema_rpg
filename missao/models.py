@@ -4,7 +4,7 @@ from personagem.models import Personagem
 
 class Missao(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.TextField()
+    descricao = models.CharField(max_length=500)
     recompensa = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True, blank=True)
     personagens = models.ManyToManyField(Personagem, related_name='missoes')
     STATUS = [

@@ -5,7 +5,7 @@ class Item(models.Model):
     nome = models.CharField(max_length=100)
     tipo = models.CharField(max_length=50)
     valor = models.FloatField()
-    descricao = models.TextField()
+    descricao = models.CharField(max_length=500)
 
     class Meta:
         db_table = "Item_itens"

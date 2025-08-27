@@ -17,7 +17,7 @@ class Personagem(models.Model):
     hp = models.IntegerField()
     ouro = models.IntegerField()
     guilda = models.ForeignKey(Guilda, on_delete=models.SET_NULL, null=True)
-    historia = models.TextField(blank=True)
+    historia = models.CharField(max_length=500)
     criador = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True) #tirar duvida com carlos se tem como mudar automaticamente para o mestre e mudar o tipo dele para npc
     tipo = models.CharField(max_length=50, choices=TIPOS)
     inventario = models.ManyToManyField(Item, related_name='personagens')

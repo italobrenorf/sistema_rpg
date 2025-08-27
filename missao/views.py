@@ -4,12 +4,18 @@ from django.shortcuts import render
 from .forms import MissaoForm, MissaoEditForm
 from django.contrib.auth.decorators import login_required, permission_required
 
+
+@login_required
+@permission_required('missao.view_missao', raise_exception=True)
 def index(request):
 
     missoes = Missao.objects.all()
 
     return render(request, 'missao/index.html', {'missoes': missoes})
 
+
+@login_required
+@permission_required('missao.add_missao', raise_exception=True)
 def cria(request):
 
     if request.method == "POST":
@@ -23,6 +29,9 @@ def cria(request):
 
     return render(request, 'missao/cria.html', {'form': form})
 
+
+@login_required
+@permission_required('missao.change_missao', raise_exception=True)
 def edita(request, id_missao):
 
     missao = Missao.objects.get(id=id_missao)
@@ -36,11 +45,16 @@ def edita(request, id_missao):
         form = MissaoEditForm(instance=missao)
     return render(request, 'missao/edita.html', {'form': form})
 
+
+@login_required
+@permission_required('missao.delete_missao', raise_exception=True)
 def deleta(request, id_missao):
     missao = Missao.objects.get(id=id_missao)
     missao.delete()
     return HttpResponseRedirect("/missao/")
 
+@login_required
+@permission_required('missao.detail_missao', raise_exception=True)
 def detalha(request, id_missao):
 
     missao = Missao.objects.get(id=id_missao)
