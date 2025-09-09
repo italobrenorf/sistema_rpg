@@ -2,67 +2,65 @@
 
 Programação para Sistemas Web II – Trabalho Final
 
-Professor: Carlos Anderson
-Projeto apresentado ao Curso de Informática para Internet do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Guanambi, como requisito parcial para obtenção da nota parcial da disciplina de Programação para Sistemas Web.
-O sistema foi desenvolvido com o objetivo de facilitar o gerenciamento de campanhas de RPG de mesa, permitindo a organização de personagens, guildas, itens, monstros, NPCs e dungeons, além de separar permissões de acesso entre Mestre e Jogadores.
+Professor: Carlos Anderson Oliveira Silva
+
+Projeto apresentado ao Curso de Informática para Internet do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Guanambi, como requisito parcial para obtenção da nota parcial da disciplina de Programação para Sistemas Web (PsW), desenvolvido com o objetivo de facilitar o gerenciamento de campanhas de RPG de mesa, permitindo organizar personagens, guildas, itens, monstros, NPCs e dungeons, além de separar permissões de acesso entre Mestre e Jogadores.
 
 🔧 Funcionalidades
 
 Cadastro de personagens, guildas, itens, monstros, NPCs e dungeons;
 
-Associação de personagens a guildas;
+Visualização de todos os registros (lista/index);
 
-Gerenciamento de atributos de personagens (nome, raça, classe, nível, HP, ouro e história);
+Detalhamento individual de cada entidade (ex.: ficha de personagem, detalhes da guilda);
 
-Organização de monstros e NPCs que interagem com os jogadores;
+Atualização de dados já cadastrados;
 
-Estruturação de dungeons com nível recomendado e descrição;
+Exclusão de registros;
 
-Controle de usuários com diferentes perfis: Mestre e Jogador;
-
-Visualização de todos os registros (index), detalhes de cada entidade, edição e exclusão;
+Controle de usuários com dois perfis diferentes: Mestre e Jogador.
 
 ⚙️ Como Executar Localmente
 
-1. Clone o repositório:
+Clone o repositório:
 
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
 
-2. Acesse a pasta do projeto:
+Acesse a pasta do projeto:
 
 cd campanha-rpg
 
 
-3. Crie e ative um ambiente virtual (opcional, mas recomendado):
+Crie e ative um ambiente virtual (Opcional):
 
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 
 
-4. Instale as dependências:
+Instale as dependências:
 
 pip install -r requirements.txt
 
 
-5. Realize as migrações do banco de dados:
+Realize as migrações do banco de dados:
 
 python manage.py makemigrations
 python manage.py migrate
 
 
-6. Crie um superusuário (para ser o Mestre ou administrador):
+Crie um superusuário:
 
 python manage.py createsuperuser
 
 
-7. Execute o servidor:
+Execute o servidor:
 
 python manage.py runserver
 
 
-8. Acesse localmente no seu navegador:
+Acesse no navegador localmente:
 
 http://127.0.0.1:8000
 
@@ -70,27 +68,20 @@ http://127.0.0.1:8000
 
 O sistema possui dois perfis de usuário:
 
-Mestre
+Mestre: acessa todas as funcionalidades, podendo cadastrar, editar, visualizar e excluir personagens, guildas, itens, monstros, NPCs e dungeons.
 
-Acessa todas as funcionalidades do sistema.
+Jogador: possui acesso restrito, podendo apenas visualizar informações relacionadas ao seu personagem, guilda e dados gerais da campanha.
 
-Pode cadastrar, editar, visualizar e excluir personagens, guildas, itens, monstros, NPCs e dungeons.
+Ao realizar o login com uma conta de Mestre (superusuário), todas as funcionalidades da aplicação estarão disponíveis no menu.
+Por exemplo, ao acessar a página de personagens, o Mestre poderá:
 
-Tem controle total sobre a campanha.
+Visualizar a lista completa de personagens cadastrados;
 
+Adicionar novos personagens;
 
-Jogador
+Atualizar informações de personagens existentes;
 
-Possui acesso restrito.
-
-Pode visualizar seu personagem, guildas e informações gerais da campanha.
-
-Não pode criar, editar ou excluir entidades principais.
-
-
-
-Ao realizar o login com uma conta de Mestre (superusuário), todas as funcionalidades estarão disponíveis.
-Já as contas de Jogador terão restrições, acessando apenas os recursos autorizados.
+Excluir registros, se necessário.
 
 👥 Integrantes do Grupo
 
