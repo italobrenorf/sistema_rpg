@@ -56,25 +56,25 @@ A aplicação tem como foco auxiliar Mestres e Jogadores de RPG de mesa no geren
    ```bash
    http://127.0.0.1:8000
 
-##💡 Perfis de Usuário
+## 💡 Perfis de Usuário
 
 O sistema possui dois níveis de acesso:
 
--Mestre 🎭: tem controle total sobre a aplicação, podendo criar, editar, visualizar e remover personagens, guildas, itens e missões.
--Jogador 🧑‍🤝‍🧑: possui acesso restrito, limitado à visualização de informações ligadas ao seu personagem, à sua guilda e aos dados gerais da campanha.
+- Mestre 🎭: tem controle total sobre a aplicação, podendo criar, editar, visualizar e remover personagens, guildas, itens e missões.
+- Jogador 🧑‍🤝‍🧑: possui acesso restrito, limitado à visualização de informações ligadas ao seu personagem, à sua guilda e aos dados gerais da campanha.
 
 Exemplo prático:
 Ao acessar a área de personagens como Mestre, é possível:
 
--Ver todos os personagens cadastrados;
--Criar novos personagens;
--Atualizar fichas já existentes;
--Excluir registros, se necessário.
+- Ver todos os personagens cadastrados;
+- Criar novos personagens;
+- Atualizar fichas já existentes;
+- Excluir registros, se necessário.
 
-##👥 Integrantes do Grupo
+## 👥 Integrantes do Grupo
 
--Ítalo Breno Rocha Ferreira
+- Ítalo Breno Rocha Ferreira
 
--Ryan Nascimento Ladeia
+- Ryan Nascimento Ladeia
 
--Leonardo Vinicius Pardinho Bernardo
+- Leonardo Vinicius Pardinho Bernardo
