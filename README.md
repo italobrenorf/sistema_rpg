@@ -1,92 +1,78 @@
-🧙‍♂️ Sistema de Gerenciamento de Campanha de RPG
+# 🧙‍♂️ Sistema de Gerenciamento de Campanha de RPG
+**Disciplina:** Programação para Sistemas Web II – Trabalho Final  
+**Professor:** Carlos Anderson Oliveira Silva  
 
-Programação para Sistemas Web II – Trabalho Final
+Este projeto foi desenvolvido como parte da avaliação do curso de Informática para Internet do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Guanambi.  
 
-Professor: Carlos Anderson Oliveira Silva
+A aplicação tem como foco auxiliar Mestres e Jogadores de RPG de mesa no gerenciamento de suas campanhas. O sistema possibilita organizar **personagens, guildas, itens, missões e usuários**, além de oferecer controle de acesso diferenciado para Mestres e Jogadores, garantindo uma experiência mais estruturada durante a narrativa.
 
-Projeto apresentado ao Curso de Informática para Internet do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Guanambi, como requisito parcial para obtenção da nota parcial da disciplina de Programação para Sistemas Web (PsW), desenvolvido com o objetivo de facilitar o gerenciamento de campanhas de RPG de mesa, permitindo organizar personagens, guildas, itens, monstros, NPCs e dungeons, além de separar permissões de acesso entre Mestre e Jogadores.
+---
 
-🔧 Funcionalidades
+## 🎲 Recursos do Sistema
 
-Cadastro de personagens, guildas, itens, monstros, NPCs e dungeons;
+- Cadastro e gerenciamento de **personagens, guildas, itens, missões e usuários**;  
+- Exibição de listas completas (index) com todos os registros;  
+- Visualização detalhada de cada entidade (ex.: ficha de personagem, informações de guilda ou itens de inventário);  
+- Edição de informações já cadastradas;  
+- Remoção de registros indesejados;  
+- **Controle de permissões**: Mestres possuem acesso total, enquanto Jogadores têm acesso limitado.  
 
-Visualização de todos os registros (lista/index);
+---
 
-Detalhamento individual de cada entidade (ex.: ficha de personagem, detalhes da guilda);
+## ⚙️ Passo a Passo para Rodar o Projeto
 
-Atualização de dados já cadastrados;
+1. **Clonar o repositório**:
+   ```bash
+   git clone https://github.com/italobrenorf/sistema_rpg.git
 
-Exclusão de registros;
+2. **Acesse a pasta do projeto**:
+   ```bash
+   cd sistema_rpg
 
-Controle de usuários com dois perfis diferentes: Mestre e Jogador.
+3. **Crie e ative um ambiente virtual (Opcional)**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Linux/Mac
+   venv\Scripts\activate      # Windows
 
-⚙️ Como Executar Localmente
+4. **Instale as dependências**:
+   ```bash
+   pip install -r requirements.txt
 
-Clone o repositório:
+5. **Realize as migrações do banco de dados**:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+6. **Crie um superusuário**:
+   ```bash
+   python manage.py createsuperuser
 
+7. **Execute o servidor**:
+   ```bash
+   python manage.py runserver
 
-Acesse a pasta do projeto:
+8. **Acesse localmente no navegador**:
+   ```bash
+   http://127.0.0.1:8000
 
-cd campanha-rpg
+##💡 Perfis de Usuário
 
+O sistema possui dois níveis de acesso:
 
-Crie e ative um ambiente virtual (Opcional):
+-Mestre 🎭: tem controle total sobre a aplicação, podendo criar, editar, visualizar e remover personagens, guildas, itens e missões.
+-Jogador 🧑‍🤝‍🧑: possui acesso restrito, limitado à visualização de informações ligadas ao seu personagem, à sua guilda e aos dados gerais da campanha.
 
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
+Exemplo prático:
+Ao acessar a área de personagens como Mestre, é possível:
 
+-Ver todos os personagens cadastrados;
+-Criar novos personagens;
+-Atualizar fichas já existentes;
+-Excluir registros, se necessário.
 
-Instale as dependências:
+##👥 Integrantes do Grupo
 
-pip install -r requirements.txt
-
-
-Realize as migrações do banco de dados:
-
-python manage.py makemigrations
-python manage.py migrate
-
-
-Crie um superusuário:
-
-python manage.py createsuperuser
-
-
-Execute o servidor:
-
-python manage.py runserver
-
-
-Acesse no navegador localmente:
-
-http://127.0.0.1:8000
-
-💡 Instruções de Acesso
-
-O sistema possui dois perfis de usuário:
-
-Mestre: acessa todas as funcionalidades, podendo cadastrar, editar, visualizar e excluir personagens, guildas, itens, monstros, NPCs e dungeons.
-
-Jogador: possui acesso restrito, podendo apenas visualizar informações relacionadas ao seu personagem, guilda e dados gerais da campanha.
-
-Ao realizar o login com uma conta de Mestre (superusuário), todas as funcionalidades da aplicação estarão disponíveis no menu.
-Por exemplo, ao acessar a página de personagens, o Mestre poderá:
-
-Visualizar a lista completa de personagens cadastrados;
-
-Adicionar novos personagens;
-
-Atualizar informações de personagens existentes;
-
-Excluir registros, se necessário.
-
-👥 Integrantes do Grupo
-
-Ítalo Breno Rocha Ferreira
-
-Ryan Nascimento Ladeia
-
-Leonardo Vinicius Pardinho Bernardo
+-Ítalo Breno Rocha Ferreira
+-Ryan Nascimento Ladeia
+-Leonardo Vinicius Pardinho Bernardo
