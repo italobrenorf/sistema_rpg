@@ -3,6 +3,7 @@ from guilda.models import Guilda
 from usuario.models import Usuario
 from item.models import Item
 
+
 class Personagem(models.Model):
     TIPOS = [
         ('Personagem', 'Personagem'),
@@ -18,9 +19,9 @@ class Personagem(models.Model):
     ouro = models.IntegerField()
     guilda = models.ForeignKey(Guilda, on_delete=models.SET_NULL, null=True)
     historia = models.CharField(max_length=500)
-    criador = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True) #tirar duvida com carlos se tem como mudar automaticamente para o mestre e mudar o tipo dele para npc
+    criador = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True)
     tipo = models.CharField(max_length=50, choices=TIPOS)
-    inventario = models.ManyToManyField(Item, related_name='personagens')
+    inventario = models.ManyToManyField(Item, through='ItemPersonagem', related_name='personagens')
 
     class Meta:
         db_table = "Personagem_personagens"
@@ -31,3 +32,14 @@ class Personagem(models.Model):
     def __str__(self):
         return self.nome
 
+
+class ItemPersonagem(models.Model):
+    personagem = models.ForeignKey(Personagem, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantidade = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = "Personagem_itens"
+
+    def __str__(self):
+        return f"{self.personagem.nome} - {self.item.nome} (x{self.quantidade})"
