@@ -74,5 +74,7 @@ Ao acessar a área de personagens como Mestre, é possível:
 ##👥 Integrantes do Grupo
 
 -Ítalo Breno Rocha Ferreira
+
 -Ryan Nascimento Ladeia
+
 -Leonardo Vinicius Pardinho Bernardo
