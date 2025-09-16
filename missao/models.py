@@ -7,6 +7,7 @@ class Missao(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=500)
     recompensa = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True, blank=True)
+    concluida = models.BooleanField(default=False)
     personagens = models.ManyToManyField(Personagem, through='MissaoPersonagem', related_name='missoes')
 
     class Meta:
