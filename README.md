@@ -78,3 +78,7 @@ Ao acessar a área de personagens como Mestre, é possível:
 - Ryan Nascimento Ladeia
 
 - Leonardo Vinicius Pardinho Bernardo
+
+## Link do Vídeo
+
+ https://youtu.be/itkKo0o8cyo?si=rLW9bPh0jwOLKS-8
